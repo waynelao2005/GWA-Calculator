@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GWA Calculator</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="page-header">
+        <h1>GWA Calculator</h1>
+      </header>
+
+      <main class="app-grid">
+        <section class="card form-card">
+          <form class="subject-form" novalidate></form>
+        </section>
+
+        <section class="card list-card">
+          <ul class="subject-list" aria-live="polite"></ul>
+        </section>
+
+        <section class="card summary-card">
+          <section class="summary" aria-live="polite"></section>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./js/controller.js"></script>
+  </body>
+</html>
