@@ -56,3 +56,22 @@ export function validateSubject(data, subjects = state.subjects) {
 
   return errors;
 }
+// Adds a new subject after validation and immediately saves the updated list.
+export function addSubject(data) {
+  const errors = validateSubject(data, state.subjects);
+
+  if (errors.length > 0) {
+    return { success: false, errors };
+  }
+
+  const newSubject = {
+    id: typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : `subject-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    name: data.name.trim(),
+    units: Number(data.units),
+    grade: Number(data.grade),
+  };
+
+  state.subjects.push(newSubject);
+  persist();
+  return { success: true, subject: newSubject };
+}
