@@ -22,7 +22,7 @@ export default class SummaryView extends View {
       </div>
 
       <div class="summary-row">
-        <span class="summary-label">Subjects</span>
+        <span class="summary-label">Subjects</span>==
         <span class="summary-value small">${subjectCount}</span>
       </div>
 

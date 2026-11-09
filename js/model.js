@@ -1,22 +1,21 @@
-// Holds the shared application state in one place so every MVC part reads the same subject list.
+// Holds the shared application state in one place  
 export const state = { subjects: [] };
 
 const STORAGE_KEY = "gwaCalculatorState";
 
-// Defines the allowed grades as a fixed list, and schools may update these values to fit their policy.
+
 export const GRADE_OPTIONS = [1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 5.0];
 
-// Stores the honor cutoffs in one place so the summary can label standing consistently.
+
 export const STANDING_RANGES = [
   { min: 1.0, max: 1.2, label: "Summa Cum Laude" },
   { min: 1.21, max: 1.45, label: "Magna Cum Laude" },
   { min: 1.46, max: 1.75, label: "Cum Laude" },
 ];
 
-// Saves the current subject list to localStorage after each change so the browser keeps the latest data.
 function persist() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.subjects));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.subjects))
   } catch (error) {
     console.error("Could not save state to localStorage.", error);
   }
@@ -58,6 +57,10 @@ export function validateSubject(data, subjects = state.subjects) {
   return errors;
 }
 
+
+
+
+
 // Adds a new subject after validation and immediately saves the updated list.
 export function addSubject(data) {
   const errors = validateSubject(data, state.subjects);
@@ -77,6 +80,10 @@ export function addSubject(data) {
   persist();
   return { success: true, subject: newSubject };
 }
+
+
+
+
 
 // Updates a subject by id and reuses the same validation rules as add mode.
 export function updateSubject(id, data) {
@@ -106,6 +113,10 @@ export function updateSubject(id, data) {
   return { success: true, subject: updatedSubject };
 }
 
+
+
+
+
 // Removes a subject by id and persists the cleaned list back to storage.
 export function deleteSubject(id) {
   const originalCount = state.subjects.length;
@@ -118,6 +129,11 @@ export function deleteSubject(id) {
 
   return false;
 }
+
+
+
+
+
 
 // Finds a single subject by id for the edit form to prefill with its current values.
 export function getSubjectById(id) {
