@@ -1,19 +1,18 @@
-// Holds the shared application state in one place so every MVC part reads the same subject list.
+// Holds the shared application state in one place  
 export const state = { subjects: [] };
 
 const STORAGE_KEY = "gwaCalculatorState";
 
-// Defines the allowed grades as a fixed list, and schools may update these values to fit their policy.
+
 export const GRADE_OPTIONS = [1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0, 5.0];
 
-// Stores the honor cutoffs in one place so the summary can label standing consistently.
+
 export const STANDING_RANGES = [
   { min: 1.0, max: 1.2, label: "Summa Cum Laude" },
   { min: 1.21, max: 1.45, label: "Magna Cum Laude" },
   { min: 1.46, max: 1.75, label: "Cum Laude" },
 ];
 
-// Saves the current subject list to localStorage after each change so the browser keeps the latest data.
 function persist() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state.subjects));
