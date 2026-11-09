@@ -15,7 +15,7 @@ export const STANDING_RANGES = [
 
 function persist() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.subjects));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.subjects))
   } catch (error) {
     console.error("Could not save state to localStorage.", error);
   }
@@ -56,7 +56,6 @@ export function validateSubject(data, subjects = state.subjects) {
 
   return errors;
 }
-
 // Adds a new subject after validation and immediately saves the updated list.
 export function addSubject(data) {
   const errors = validateSubject(data, state.subjects);
@@ -105,6 +104,9 @@ export function updateSubject(id, data) {
   return { success: true, subject: updatedSubject };
 }
 
+
+
+
 // Removes a subject by id and persists the cleaned list back to storage.
 export function deleteSubject(id) {
   const originalCount = state.subjects.length;
@@ -117,6 +119,10 @@ export function deleteSubject(id) {
 
   return false;
 }
+
+
+
+
 
 // Finds a single subject by id for the edit form to prefill with its current values.
 export function getSubjectById(id) {
@@ -186,3 +192,6 @@ export function getStanding(gwa) {
 
   return "Failing";
 }
+
+
+

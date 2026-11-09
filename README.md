@@ -34,4 +34,4 @@ project/
 ```
 
 ## GitHub Pages
-Add the GitHub Pages link here when the project is published.
+https://waynelao2005.github.io/GWA-Calculator/
